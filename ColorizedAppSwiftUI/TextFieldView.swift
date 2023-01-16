@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct TextFieldView: View {
-    @Binding var text: String
+    @Binding var value: Double
     
     var body: some View {
-        TextField("Privet", text: $text)
+        TextField(
+            "",
+            value: $value,
+            formatter: NumberFormatter()
+        )
             .textFieldStyle(.roundedBorder)
             .frame(width: 50, height: 20)
             .multilineTextAlignment(.center)
@@ -21,6 +25,6 @@ struct TextFieldView: View {
 
 struct TextFieldView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(text: .constant(""))
+        TextFieldView(value: .constant(2))
     }
 }
